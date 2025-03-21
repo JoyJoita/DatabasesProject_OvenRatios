@@ -9,4 +9,8 @@ CREATE TABLE books (
     price DECIMAL(7,2) NOT NULL,
     series_id INT, -- foreign key
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese")
-)
+);
+CREATE TABLE book_series (
+	series_id INT PRIMARY KEY AUTO_INCREMENT,
+    name NVARCHAR(500) NOT NULL
+);
