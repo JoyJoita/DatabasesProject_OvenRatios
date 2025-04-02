@@ -56,4 +56,10 @@ CREATE TABLE orders (
     customer_id INT NOT NULL REFERENCES customers(customer_id),
     order_date DATE NOT NULL,
     total_cost DECIMAL(7, 2) NOT NULL
-)
+);
+CREATE TABLE order_contents (
+	order_id INT REFERENCES orders(order_id),
+    book_id INT REFERENCES books(book_id),
+    quantity INT NOT NULL CHECK (quantity > 0),
+    PRIMARY KEY (order_id, book_id)
+);
