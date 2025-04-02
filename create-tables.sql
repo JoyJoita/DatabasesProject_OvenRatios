@@ -15,6 +15,15 @@ CREATE TABLE books (
     series_id INT REFERENCES book_series(series_id),
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese")
 );
+CREATE TABLE employees (
+	employee_id INT PRIMARY KEY,
+    first_name NVARCHAR(100) NOT NULL,
+    middle_name NVARCHAR(100),
+    last_name NVARCHAR(100) NOT NULL,
+    hourly_rate DECIMAL(6, 2) NOT NULL CHECK (hourly_rate > 0),
+    location INT REFERENCES locations(location_id),
+    is_manager BOOL NOT NULL
+);
 CREATE TABLE locations (
 	location_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
@@ -26,7 +35,7 @@ CREATE TABLE locations (
     phone CHAR(10) NOT NULL,
     sq_ft INT NOT NULL,
     landmark_location NVARCHAR(200),
-    manager INT NOT NULL -- foriegn key
+    manager INT NOT NULL REFERENCES employees(employee_id)
 );
 CREATE TABLE book_stock (
 	stock_id INT PRIMARY KEY,
