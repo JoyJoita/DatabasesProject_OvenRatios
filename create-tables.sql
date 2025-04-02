@@ -39,8 +39,8 @@ CREATE TABLE locations (
 );
 CREATE TABLE book_stock (
 	stock_id INT PRIMARY KEY,
-    book_id INT NOT NULL UNIQUE REFERENCES books(book_id),
-    location_id INT NOT NULL UNIQUE REFERENCES locations(location_id),
+    book_id INT NOT NULL REFERENCES books(book_id),
+    location_id INT NOT NULL REFERENCES locations(location_id),
     quantity INT NOT NULL DEFAULT 0
 );
 CREATE TABLE customers (
