@@ -15,6 +15,16 @@ CREATE TABLE books (
     series_id INT REFERENCES book_series(series_id),
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese")
 );
+
+Insert into books (book_id, title, author_name, isbn, release_date, price, series_id, language)
+values 
+(1, 'The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565', '1925-04-10', 10.99, NULL, 'English'),
+(2, '1984', 'George Orwell', '9780451524935', '1949-06-08', 9.99, NULL, 'English'),
+(3, 'The Hobbit', 'J.R.R. Tolkien', '9780345339683', '1937-09-21', 14.99, null, 'English'),
+(4, 'The Catcher in the Rye', 'J.D. Salinger', '9780316769488', '1951-07-16', 12.99, NULL, 'English'),
+(5, 'The Girl on the Train', 'Paula Hawkins', '9781594633669', '2015-01-13', 11.99, NULL, 'English');
+
+
 CREATE TABLE employees (
 	employee_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name NVARCHAR(100) NOT NULL,
