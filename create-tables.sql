@@ -16,7 +16,7 @@ CREATE TABLE books (
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese")
 );
 CREATE TABLE employees (
-	employee_id INT PRIMARY KEY,
+	employee_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name NVARCHAR(100) NOT NULL,
     middle_name NVARCHAR(100),
     last_name NVARCHAR(100) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE locations (
     phone CHAR(10) NOT NULL,
     sq_ft INT NOT NULL,
     landmark_location NVARCHAR(200),
-    manager INT NOT NULL REFERENCES employees(employee_id)
+    manager INT NOT NULL REFERENCES employees(employee_id) -- Check if manager?
 );
 CREATE TABLE book_stock (
 	stock_id INT PRIMARY KEY,
@@ -43,3 +43,11 @@ CREATE TABLE book_stock (
     location_id INT NOT NULL UNIQUE REFERENCES locations(location_id),
     quantity INT NOT NULL DEFAULT 0
 );
+CREATE TABLE customers (
+	customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    rewards_points INT DEFAULT 0,
+    balance DECIMAL(6, 2),
+    phone_number DECIMAL(10, 0),
+    email VARCHAR(320),
+    name NVARCHAR(100) NOT NULL
+)
