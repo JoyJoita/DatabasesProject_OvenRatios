@@ -50,4 +50,10 @@ CREATE TABLE customers (
     phone_number DECIMAL(10, 0),
     email VARCHAR(320),
     name NVARCHAR(100) NOT NULL
+);
+CREATE TABLE orders (
+	order_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT NOT NULL REFERENCES customers(customer_id),
+    order_date DATE NOT NULL,
+    total_cost DECIMAL(7, 2) NOT NULL
 )
