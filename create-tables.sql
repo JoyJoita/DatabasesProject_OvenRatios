@@ -47,7 +47,7 @@ CREATE TABLE customers (
 	customer_id INT PRIMARY KEY AUTO_INCREMENT,
     rewards_points INT DEFAULT 0,
     balance DECIMAL(6, 2),
-    phone_number DECIMAL(10, 0),
+    phone_number VARCHAR(20),
     email VARCHAR(320),
     name NVARCHAR(100) NOT NULL
 );
