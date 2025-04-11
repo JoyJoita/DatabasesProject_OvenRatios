@@ -47,6 +47,10 @@ WHERE oc.book_id IS NULL
 ORDER BY b.release_date DESC;
 
 
-
-
+-- Employees and their work locations
+SELECT e.first_name, e.last_name, e.is_manager,
+l.name AS location_name, l.city, l.state
+FROM employees e
+JOIN locations l ON e.location = l.location_id
+ORDER BY l.name;
 
