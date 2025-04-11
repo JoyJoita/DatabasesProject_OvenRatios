@@ -24,21 +24,21 @@ INSERT INTO genres (genre_name) VALUES
 
 -- Insert data into books table
 INSERT INTO books (title, author_name, isbn, release_date, price, series_id, language) VALUES
-('Harry Potter and the Sorcerer\'s Stone', 'J.K. Rowling', '9780590353403', '1997-06-26', 10.99, 1, 'English'),
-('Harry Potter and the Chamber of Secrets', 'J.K. Rowling', '9780439064873', '1998-07-02', 11.99, 1, 'English'),
-('The Fellowship of the Ring', 'J.R.R. Tolkien', '9780618260274', '1954-07-29', 15.50, 2, 'English'),
-('The Two Towers', 'J.R.R. Tolkien', '9780618260281', '1954-11-11', 16.25, 2, 'English'),
-('The Lightning Thief', 'Rick Riordan', '9780786847913', '2005-07-01', 9.75, 3, 'English'),
-('The Sea of Monsters', 'Rick Riordan', '9780786856878', '2006-04-01', 10.25, 3, 'English'),
-('A Game of Thrones', 'George R.R. Martin', '9780553801471', '1996-08-01', 12.50, 4, 'English'),
-('A Clash of Kings', 'George R.R. Martin', '9780553806957', '1999-02-01', 13.00, 4, 'English'),
-('The Hunger Games', 'Suzanne Collins', '9780439023481', '2008-09-14', 10.50, 5, 'English'),
-('Catching Fire', 'Suzanne Collins', '9780439023498', '2009-09-01', 11.00, 5, 'English'),
-('Pride and Prejudice', 'Jane Austen', '9780141439518', '1813-01-28', 8.99, NULL, 'English'),
-('To Kill a Mockingbird', 'Harper Lee', '9780061120084', '1960-07-11', 12.75, NULL, 'English'),
-('The Silent Patient', 'Alex Michaelides', '9781250301697', '2019-02-05', 13.50, NULL, 'English'),
-('The Love Hypothesis', 'Ali Hazelwood', '9781984802844', '2021-09-14', 14.00, NULL, 'English'),
-('El Principito', 'Antoine de Saint-Exupéry', '9780156013730', '1943-04-06', 9.50, NULL, 'Spanish');
+('Harry Potter and the Sorcerer\'s Stone', 'Rowling, J.K.', '9780590353403', '1997-06-26', 10.99, 1, 'English'),
+('Harry Potter and the Chamber of Secrets', 'Rowling, J.K.', '9780439064873', '1998-07-02', 11.99, 1, 'English'),
+('The Fellowship of the Ring', 'Tolkien, J.R.R.', '9780618260274', '1954-07-29', 15.50, 2, 'English'),
+('The Two Towers', 'Tolkien, J.R.R.', '9780618260281', '1954-11-11', 16.25, 2, 'English'),
+('The Lightning Thief', 'Riordan, Rick', '9780786847913', '2005-07-01', 9.75, 3, 'English'),
+('The Sea of Monsters', 'Riordan, Rick', '9780786856878', '2006-04-01', 10.25, 3, 'English'),
+('A Game of Thrones', 'Martin, George R.R.', '9780553801471', '1996-08-01', 12.50, 4, 'English'),
+('A Clash of Kings', 'Martin, George R.R.', '9780553806957', '1999-02-01', 13.00, 4, 'English'),
+('The Hunger Games', 'Collins, Suzanne', '9780439023481', '2008-09-14', 10.50, 5, 'English'),
+('Catching Fire', 'Collins, Suzanne', '9780439023498', '2009-09-01', 11.00, 5, 'English'),
+('Pride and Prejudice', 'Austen, Jane', '9780141439518', '1813-01-28', 8.99, NULL, 'English'),
+('To Kill a Mockingbird', 'Lee, Harper', '9780061120084', '1960-07-11', 12.75, NULL, 'English'),
+('The Silent Patient', 'Michaelides, Alex', '9781250301697', '2019-02-05', 13.50, NULL, 'English'),
+('The Love Hypothesis', 'Hazelwood, Ali', '9781984802844', '2021-09-14', 14.00, NULL, 'English'),
+('El Principito', 'Saint-Exupéry, Antoine de', '9780156013730', '1943-04-06', 9.50, NULL, 'Spanish');
 
 -- Insert data into book_genres table
 INSERT INTO book_genres (book_id, genre_id) VALUES
