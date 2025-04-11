@@ -1,6 +1,8 @@
 -- This file was generated the Google Gemini 2.0 Flash gen AI model.
 -- Please see AI Disclosure.txt for full prompt and response.
+
 USE book_boutique;
+
 -- Insert data into book_series table
 INSERT INTO book_series (name) VALUES
 ('Harry Potter'),
@@ -83,13 +85,16 @@ INSERT INTO order_contents (order_id, book_id, quantity) VALUES
 (5, 6, 1),
 (5, 11, 1);
 
+-- Insert data into locations table
+INSERT INTO locations (name, address_line_1, address_line_2, city, state, postal_code, phone, sq_ft, landmark_location, manager) VALUES
+('Main Street Store', '123 Main St', NULL, 'Anytown', 'CA', '90210', '5551112222', 2000, 'Near the park', 1);
+
+-- Insert data into employees table
 INSERT INTO employees (first_name, middle_name, last_name, hourly_rate, location, is_manager) VALUES
 ('John', NULL, 'Doe', 15.00, 1, TRUE),
 ('Jane', 'Marie', 'Smith', 12.50, 1, FALSE);
 
-INSERT INTO locations (name, address_line_1, address_line_2, city, state, postal_code, phone, sq_ft, landmark_location, manager) VALUES
-('Main Street Store', '123 Main St', NULL, 'Anytown', 'CA', '90210', '5551112222', 2000, 'Near the park', 1);
-
+-- Insert data into book_stock table
 INSERT INTO book_stock (stock_id, book_id, location_id, quantity) VALUES
 (101, 1, 1, 50),
 (102, 2, 1, 30),
