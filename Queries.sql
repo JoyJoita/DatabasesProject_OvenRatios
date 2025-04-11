@@ -1,4 +1,5 @@
 USE book_boutique;
+
 SELECT b.book_id AS ID,
 b.title AS Title,
 b.author_name AS Author,
