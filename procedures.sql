@@ -1,21 +1,21 @@
 USE book_boutique;
 
-drop procedure if exists p_checkForOrderOrphans;
+DROP PROCEDURE IF EXISTS p_checkForOrderOrphans;
 
 Delimiter //
-Create procedure p_checkForOrderOrphans()
-Deterministic
-begin
-	drop view if exists order_orphan_view;
-	Create view order_orphan_view as
-    select customer_id
-    from orders
-    where customer_id not in (select customer_id from customers);
+CREATE PROCEDURE p_checkForOrderOrphans()
+DETERMINISTIC
+BEGIN
+	DROP VIEW IF EXISTS order_orphan_view;
+	CREATE VIEW order_orphan_view AS
+    SELECT customer_id
+    FROM orders
+    WHERE customer_id NOT IN (SELECT customer_id FROM customers);
     
-    select * from order_orphan_view;
-end //
+    SELECT * FROM order_orphan_view; -- change this to a remove statement ! !
+END //
 Delimiter ;
 
-call p_checkForOrderOrphans;
+CALL p_checkForOrderOrphans;
 
 
