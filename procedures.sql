@@ -1,5 +1,9 @@
 USE book_boutique;
 
+/*
+p_checkForOrderOrphans: procedure that checks for orders that need to be removed if the customer 
+the order is associated to is taken off the list
+*/
 DROP PROCEDURE IF EXISTS p_checkForOrderOrphans;
 
 Delimiter //
