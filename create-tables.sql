@@ -34,7 +34,7 @@ CREATE TABLE employees (
     middle_name NVARCHAR(100),
     last_name NVARCHAR(100) NOT NULL,
     hourly_rate DECIMAL(6, 2) NOT NULL CHECK (hourly_rate > 0),
-    location INT NOT NULL,
+    location INT NOT NULL REFERENCES locations(location_id),
     is_manager BOOL NOT NULL
 );
 CREATE TABLE locations (
@@ -48,11 +48,8 @@ CREATE TABLE locations (
     phone CHAR(10) NOT NULL,
     sq_ft INT NOT NULL,
     landmark_location NVARCHAR(200),
-    manager INT NOT NULL REFERENCES employees(employee_id) -- Check if manager?
+    manager INT NOT NULL -- Check if manager?
 );
-
-ALTER TABLE employees 
-ADD CONSTRAINT employee_location FOREIGN KEY employees(location) REFERENCES locations(location_id);
 
 CREATE TABLE book_stock (
 	stock_id INT PRIMARY KEY,
