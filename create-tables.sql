@@ -6,17 +6,6 @@ CREATE TABLE book_series (
     name NVARCHAR(500) NOT NULL
 );
 
-CREATE TABLE genres(
-	genre_id INT PRIMARY KEY auto_increment,
-    genre_name VARCHAR(100)
-    );
-    
-CREATE TABLE book_genres(
-	book_id INT REFERENCES books(book_id),
-    genre_id INT REFERENCES genres(genre_id),
-    PRIMARY KEY (genre_id, book_id)
-);
-
 CREATE TABLE books (
 	book_id INT PRIMARY KEY auto_increment,
     title NVARCHAR(1000) NOT NULL,
@@ -28,15 +17,16 @@ CREATE TABLE books (
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese")
 );
 
-/*
-Insert into books (book_id, title, author_name, isbn, release_date, price, series_id, language)
-values 
-(1, 'The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565', '1925-04-10', 10.99, NULL, 'English'),
-(2, '1984', 'George Orwell', '9780451524935', '1949-06-08', 9.99, NULL, 'English'),
-(3, 'The Hobbit', 'J.R.R. Tolkien', '9780345339683', '1937-09-21', 14.99, null, 'English'),
-(4, 'The Catcher in the Rye', 'J.D. Salinger', '9780316769488', '1951-07-16', 12.99, NULL, 'English'),
-(5, 'The Girl on the Train', 'Paula Hawkins', '9781594633669', '2015-01-13', 11.99, NULL, 'English');
-*/
+CREATE TABLE genres(
+	genre_id INT PRIMARY KEY auto_increment,
+    genre_name VARCHAR(100)
+);
+    
+CREATE TABLE book_genres(
+	book_id INT REFERENCES books(book_id),
+    genre_id INT REFERENCES genres(genre_id),
+    PRIMARY KEY (genre_id, book_id)
+);
 
 CREATE TABLE employees (
 	employee_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -44,7 +34,7 @@ CREATE TABLE employees (
     middle_name NVARCHAR(100),
     last_name NVARCHAR(100) NOT NULL,
     hourly_rate DECIMAL(6, 2) NOT NULL CHECK (hourly_rate > 0),
-    location INT REFERENCES locations(location_id),
+    location INT NOT NULL,
     is_manager BOOL NOT NULL
 );
 CREATE TABLE locations (
@@ -60,6 +50,10 @@ CREATE TABLE locations (
     landmark_location NVARCHAR(200),
     manager INT NOT NULL REFERENCES employees(employee_id) -- Check if manager?
 );
+
+ALTER TABLE employees 
+ADD CONSTRAINT employee_location FOREIGN KEY employees(location) REFERENCES locations(location_id);
+
 CREATE TABLE book_stock (
 	stock_id INT PRIMARY KEY,
     book_id INT NOT NULL REFERENCES books(book_id),
