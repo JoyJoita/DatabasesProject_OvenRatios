@@ -34,4 +34,4 @@ BEGIN
 	);
 END //
 DELIMITER ;
-CALL p_remove_order_contents_orphans()
+CALL p_remove_order_contents_orphans();
