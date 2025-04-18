@@ -19,7 +19,8 @@ INSERT INTO book_series (name) VALUES
 ('Maze Runner'),
 ('The Inheritance Cycle'),
 ('The Dark Tower'),
-('Miss Peregrine’s Home for Peculiar Children');
+('Miss Peregrine’s Home for Peculiar Children'),
+('Sapiens Series');
 
 -- Insert data into genres table
 INSERT INTO genres (genre_name) VALUES
@@ -42,7 +43,13 @@ INSERT INTO genres (genre_name) VALUES
 ('Science'),
 ('Poetry'),
 ('Crime'),
-('Philosophy');
+('Philosophy'),
+('Comedy'),
+('Memoir'),
+('Travel'),
+('Psychology'),
+('Business'),
+('Graphic Novel');
 
 -- Insert data into books table
 INSERT INTO books (title, author_name, isbn, release_date, price, series_id, language) VALUES
@@ -73,13 +80,21 @@ INSERT INTO books (title, author_name, isbn, release_date, price, series_id, lan
 ('Eragon', 'Paolini, Christopher', '9780375826696', '2002-08-26', 12.25, 13, 'English'),
 ('The Gunslinger', 'King, Stephen', '9780451210843', '1982-06-10', 11.99, 14, 'English'),
 ('Library of Souls', 'Riggs, Ransom', '9781594748400', '2015-09-22', 12.75, 15, 'English'),
--- Standalones
+('The Hobbit', 'Tolkien, J.R.R.', '9780345339683', '1937-09-21', 13.99, 2, 'English'),
+('1984', 'Orwell, George', '9780451524935', '1949-06-08', 9.99, NULL, 'English'),
+('The Great Gatsby', 'Fitzgerald, F. Scott', '9780743273565', '1925-04-10', 10.99, NULL, 'English'),
+('Brave New World', 'Huxley, Aldous', '9780060850524', '1932-08-31', 14.50, NULL, 'English'),
+('The Catcher in the Rye', 'Salinger, J.D.', '9780316769488', '1951-07-16', 11.75, NULL, 'English'),
+('Moby Dick', 'Melville, Herman', '9781503280786', '1851-10-18', 12.25, NULL, 'English'),
+('The Shining', 'King, Stephen', '9780307743657', '1977-01-28', 15.00, NULL, 'English'),
+('The Girl on the Train', 'Hawkins, Paula', '9781594633669', '2015-01-13', 14.25, NULL, 'English'),
+('Sapiens: A Brief History of Humankind', 'Harari, Yuval Noah', '9780062316097', '2015-02-10', 18.99, 16, 'English'),
+('Educated', 'Westover, Tara', '9780399590504', '2018-02-20', 16.00, NULL, 'English'),
 ('1984', 'Orwell, George', '9780451524935', '1949-06-08', 9.50, NULL, 'English'),
 ('Becoming', 'Obama, Michelle', '9781524763138', '2018-11-13', 16.99, NULL, 'English'),
-('Sapiens', 'Harari, Yuval Noah', '9780062316097', '2011-09-04', 18.99, NULL, 'English'),
+('Sapiens', 'Harari, Yuval Noah', '9780062316097', '2011-09-04', 18.99, 16, 'English'),
 ('Meditations', 'Aurelius, Marcus', '9780140449334', '180-01-01', 8.50, NULL, 'English'),
 ('The Alchemist', 'Coelho, Paulo', '9780061122415', '1988-01-01', 9.99, NULL, 'English');
-
 
 -- Insert data into book_genres table
 INSERT INTO book_genres (book_id, genre_id) VALUES
@@ -114,7 +129,24 @@ INSERT INTO book_genres (book_id, genre_id) VALUES
 (29, 3),
 (30, 11),
 (31, 11), (31, 12),
-(32, 13), (32, 11);
+(32, 13), (32, 11),
+(17, 21),
+(29, 22),
+(30, 24),
+(31, 25),
+(26, 26),
+(27, 23),
+(18, 21),
+(31, 13),
+(32, 14),
+(33, 13),
+(34, 14),
+(35, 13),
+(36, 13),
+(37, 9),
+(38, 9),
+(39, 12),
+(40, 12);
 
 -- Insert data into customers table
 INSERT INTO customers (name, rewards_points, balance, phone_number, email) VALUES
@@ -126,7 +158,23 @@ INSERT INTO customers (name, rewards_points, balance, phone_number, email) VALUE
 ('Frank Moore', 100, 35.75, '222-333-4444', 'frank.moore@email.net'),
 ('Gina Black', 25, 12.00, '666-777-8888', 'gina.black@email.io'),
 ('Henry Ford', 60, 45.50, '111-222-3333', 'henry.ford@email.com'),
-('Isla North', 40, 22.15, '777-888-9999', 'isla.north@email.com');
+('Isla North', 40, 22.15, '777-888-9999', 'isla.north@email.com'),
+('Jack Daniels', 45, 28.75, '111-333-5555', 'jack.daniels@email.com'),
+('Kelly Monroe', 95, 50.00, '222-444-6666', 'kelly.monroe@email.net'),
+('Liam Woods', 120, 77.10, '333-555-7777', 'liam.woods@email.org'),
+('Mia Carter', 15, 10.00, '444-666-8888', 'mia.carter@email.com'),
+('Nathan Drake', 60, 35.20, '555-777-9999', 'nathan.drake@email.com'),
+('Olivia Benson', 25, 18.90, '666-888-0000', 'olivia.benson@email.net'),
+('Patrick Star', 5, 2.50, '777-000-1111', 'patrick.star@email.org'),
+('Quinn Harper', 70, 42.30, '888-111-2222', 'quinn.harper@email.com'),
+('Rachel Adams', 80, 55.15, '999-222-3333', 'rachel.adams@email.net'),
+('Samuel Green', 35, 20.45, '000-333-4444', 'samuel.green@email.org'),
+('Tina Turner', 100, 60.00, '123-321-4567', 'tina.turner@email.com'),
+('Ulysses Grant', 40, 22.10, '234-432-5678', 'ulysses.grant@email.net'),
+('Violet Summers', 90, 48.25, '345-543-6789', 'violet.summers@email.org'),
+('Wesley Chase', 10, 5.00, '456-654-7890', 'wesley.chase@email.com'),
+('Xena Foster', 55, 30.80, '567-765-8901', 'xena.foster@email.net'),
+('Yasmin Blake', 65, 38.00, '678-876-9012', 'yasmin.blake@email.org');
 
 -- Insert data into orders table
 INSERT INTO orders (customer_id, order_date, total_cost) VALUES
@@ -141,7 +189,27 @@ INSERT INTO orders (customer_id, order_date, total_cost) VALUES
 (7, '2025-04-11', 18.99),
 (8, '2025-04-12', 12.25),
 (9, '2025-04-13', 20.00),
-(10, '2025-04-14', 22.50);
+(10, '2025-04-14', 22.50),
+(11, '2025-04-08', 18.99),
+(12, '2025-04-08', 27.50),
+(13, '2025-04-09', 14.99),
+(14, '2025-04-09', 35.00),
+(15, '2025-04-10', 22.75),
+(16, '2025-04-10', 19.99),
+(17, '2025-04-11', 12.50),
+(18, '2025-04-11', 29.98),
+(19, '2025-04-12', 26.00),
+(20, '2025-04-12', 41.49),
+(1, '2025-04-13', 13.25),
+(2, '2025-04-14', 19.49),
+(13, '2025-04-15', 22.30),
+(13, '2025-04-16', 17.50),
+(16, '2025-04-17', 11.99),
+(19, '2025-04-17', 12.50),
+(25, '2025-04-18', 33.75),
+(25, '2025-04-19', 21.60),
+(5, '2025-04-19', 25.00),
+(15, '2025-04-20', 20.00);
 
 -- Insert data into order_contents table
 INSERT INTO order_contents (order_id, book_id, quantity) VALUES
@@ -164,22 +232,67 @@ INSERT INTO order_contents (order_id, book_id, quantity) VALUES
 (12, 27, 1),
 (13, 28, 1),
 (13, 29, 1),
-(14, 30, 1);
+(14, 30, 1),
+(6, 7, 1),
+(7, 3, 1),
+(7, 10, 1),
+(8, 14, 1),
+(9, 5, 2),
+(10, 2, 1),
+(11, 11, 1),
+(12, 12, 2),
+(13, 6, 1),
+(14, 1, 1),
+(14, 4, 1),
+(15, 9, 1),
+(15, 13, 1),
+(16, 15, 1),
+(17, 8, 1),
+(18, 12, 1),
+(19, 14, 1),
+(20, 1, 1),
+(21, 2, 1),
+(22, 16, 1),
+(23, 6, 1),
+(24, 5, 1),
+(25, 7, 1);
 
 -- Insert data into locations table
 INSERT INTO locations (name, address_line_1, address_line_2, city, state, postal_code, phone, sq_ft, landmark_location, manager) VALUES
 ('Main Street Store', '123 Main St', NULL, 'Anytown', 'CA', '90210', '5551112222', 2000, 'Near the park', 1),
-('Downtown Branch', '456 Broadway Ave', 'Floor 2', 'Bigcity', 'NY', '10001', '5552223333', 2500, 'Next to the theater', 2),
-('Uptown Store', '789 Hill Rd', NULL, 'Greenville', 'TX', '75401', '5553334444', 1800, 'Opposite City Library', 3);
+('Downtown Branch', '456 Broadway Ave', 'Floor 2', 'Bigcity', 'NY', '10001', '5552223333', 2500, 'Next to the theater', 5),
+('Uptown Store', '789 Hill Rd', NULL, 'Greenville', 'TX', '75401', '5553334444', 1800, 'Opposite City Library', 6),
+('Eastside Branch', '456 Elm St', NULL, 'Eastville', 'NY', '10001', '5552223333', 1500, 'Next to Eastville Library', 9),
+('Lakeside Bookshop', '789 Lake Rd', 'Suite 10', 'Laketown', 'TX', '73301', '5553334444', 1800, 'Opposite Lakeside Mall', 11);
 
 -- Insert data into employees table
 INSERT INTO employees (first_name, middle_name, last_name, hourly_rate, location, is_manager) VALUES
 ('John', NULL, 'Doe', 15.00, 1, TRUE),
 ('Jane', 'Marie', 'Smith', 12.50, 1, FALSE),
-('Emily', NULL, 'Clark', 14.25, 2, TRUE),
+('Emily', NULL, 'Clark', 14.25, 2, FALSE),
 ('George', 'H.', 'Adams', 13.00, 2, FALSE),
-('Hannah', NULL, 'Lee', 13.50, 3, TRUE),
-('Ivan', 'M.', 'King', 12.75, 3, FALSE);
+('Hannah', NULL, 'Lee', 13.50, 2, TRUE),
+('Ivan', 'M.', 'King', 12.75, 3, TRUE),
+('Ethan', NULL, 'Brooks', 13.50, 4, FALSE),
+('Nora', 'Anne', 'Lopez', 12.75, 4, FALSE),
+('Carlos', NULL, 'Ramirez', 14.00, 4, TRUE),
+('Priya', 'K.', 'Sharma', 12.25, 2, FALSE),
+('Leo', NULL, 'Nguyen', 13.00, 5, TRUE),
+('Hannah', NULL, 'Kim', 11.75, 3, FALSE),
+('Isabella', NULL, 'Cruz', 12.00, 1, FALSE),
+('Mason', 'Lee', 'Anderson', 12.50, 1, FALSE),
+('Zoe', NULL, 'Martinez', 11.90, 1, FALSE),
+('Avery', 'James', 'Patel', 12.30, 1, FALSE),
+('Sophie', NULL, 'Diaz', 11.75, 5, FALSE),
+('Jaden', NULL, 'White', 13.10, 5, FALSE),
+('Luna', NULL, 'Garcia', 12.60, 3, FALSE),
+('Miles', 'Aaron', 'Baker', 13.00, 5, FALSE),
+('Chloe', NULL, 'Robinson', 12.40, 4, FALSE),
+('Ryan', 'Lee', 'Gonzalez', 12.50, 1, FALSE),
+('Ella', NULL, 'Reyes', 11.90, 2, FALSE),
+('David', 'Sam', 'Cook', 13.00, 3, FALSE),
+('Grace', 'Marie', 'Thompson', 12.80, 4, FALSE),
+('Owen', 'T.', 'Clark', 13.20, 5, FALSE);
 
 -- Insert data into book_stock table
 INSERT INTO book_stock (stock_id, book_id, location_id, quantity) VALUES
@@ -191,4 +304,19 @@ INSERT INTO book_stock (stock_id, book_id, location_id, quantity) VALUES
 (106, 21, 2, 20),
 (107, 22, 2, 10),
 (108, 23, 3, 18),
-(109, 25, 3, 30);
+(109, 25, 3, 30),
+(104, 31, 1, 50),
+(105, 32, 1, 60),
+(106, 33, 1, 40),
+(107, 34, 1, 45),
+(108, 35, 1, 55),
+(109, 36, 2, 70),
+(110, 37, 2, 65),
+(111, 38, 3, 80),
+(112, 39, 3, 50),
+(113, 40, 4, 90),
+(114, 31, 5, 30),
+(115, 32, 5, 40),
+(116, 33, 5, 35),
+(117, 34, 5, 45),
+(118, 35, 5, 50);
