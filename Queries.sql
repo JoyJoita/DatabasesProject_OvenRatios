@@ -29,8 +29,6 @@ LEFT JOIN (
 ON b.book_id = stock.book_id
 GROUP BY b.book_id;
 
--- Error Code: 1055. Expression #7 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'stock.quantity' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
-
 -- Total Revenue by Genre
 SELECT g.genre_name, SUM(oc.quantity * b.price) AS genre_revenue
 FROM order_contents oc
@@ -65,4 +63,3 @@ l.name AS location_name, l.city, l.state
 FROM employees e
 JOIN locations l ON e.location = l.location_id
 ORDER BY l.name;
-
