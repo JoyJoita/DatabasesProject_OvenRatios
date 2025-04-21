@@ -81,7 +81,7 @@ INSERT INTO books (title, author_name, isbn, release_date, price, series_id, lan
 ('The Gunslinger', 'King, Stephen', '9780451210843', '1982-06-10', 11.99, 14, 'English'),
 ('Library of Souls', 'Riggs, Ransom', '9781594748400', '2015-09-22', 12.75, 15, 'English'),
 ('The Hobbit', 'Tolkien, J.R.R.', '9780345339683', '1937-09-21', 13.99, 2, 'English'),
-('1984', 'Orwell, George', '9780451524935', '1949-06-08', 9.99, NULL, 'English'), -- Duplicate. Should be removed
+('1985: The Big Brotherening', 'Orwell, George', '9780451524936', '1949-06-08', 9.99, NULL, 'English'), -- Duplicate. Should be removed
 ('The Great Gatsby', 'Fitzgerald, F. Scott', '9780743273565', '1925-04-10', 10.99, NULL, 'English'),
 ('Brave New World', 'Huxley, Aldous', '9780060850524', '1932-08-31', 14.50, NULL, 'English'),
 ('The Catcher in the Rye', 'Salinger, J.D.', '9780316769488', '1951-07-16', 11.75, NULL, 'English'),
