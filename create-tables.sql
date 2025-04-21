@@ -9,7 +9,7 @@ CREATE TABLE book_series (
 CREATE TABLE books (
 	book_id INT PRIMARY KEY auto_increment,
     title NVARCHAR(1000) NOT NULL,
-    author_name NVARCHAR(200) NOT NULL,
+    author_name NVARCHAR(200) NOT NULL, -- lastname, firstname
     isbn CHAR(13) NOT NULL,
 	release_date DATE NOT NULL,
     price DECIMAL(7,2) NOT NULL,
