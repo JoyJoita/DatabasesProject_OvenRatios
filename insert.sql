@@ -9,7 +9,7 @@ INSERT INTO book_series (name) VALUES
 ('The Lord of the Rings'),
 ('Percy Jackson & The Olympians'),
 ('A Song of Ice and Fire'),
-('The Hunger Games')
+('The Hunger Games'),
 ('The Chronicles of Narnia'),
 ('The Wheel of Time'),
 ('Sherlock Holmes'),
@@ -33,7 +33,7 @@ INSERT INTO genres (genre_name) VALUES
 ('Young Adult'),
 ('Contemporary'),
 ('Horror'),
-('Adventure')
+('Adventure'),
 ('Non-Fiction'),
 ('Biography'),
 ('Classic Literature'),
@@ -294,6 +294,7 @@ INSERT INTO employees (first_name, middle_name, last_name, hourly_rate, location
 ('Grace', 'Marie', 'Thompson', 12.80, 4, FALSE),
 ('Owen', 'T.', 'Clark', 13.20, 5, FALSE);
 
+
 -- Insert data into book_stock table
 INSERT INTO book_stock (stock_id, book_id, location_id, quantity) VALUES
 (101, 1, 1, 50),
@@ -305,12 +306,6 @@ INSERT INTO book_stock (stock_id, book_id, location_id, quantity) VALUES
 (107, 22, 2, 10),
 (108, 23, 3, 18),
 (109, 25, 3, 30),
-(104, 31, 1, 50),
-(105, 32, 1, 60),
-(106, 33, 1, 40),
-(107, 34, 1, 45),
-(108, 35, 1, 55),
-(109, 36, 2, 70),
 (110, 37, 2, 65),
 (111, 38, 3, 80),
 (112, 39, 3, 50),

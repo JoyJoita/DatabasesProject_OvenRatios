@@ -9,16 +9,27 @@ CASE
 	WHEN b.series_id IS NULL THEN ""
     ELSE ser.name
 END AS Series,
-group_concat(g.genre_name ORDER BY g.genre_ID ASC SEPARATOR ", ") AS Genre
+group_concat(g.genre_name ORDER BY g.genre_ID ASC SEPARATOR ", ") AS Genre,
+CASE
+	WHEN stock.quantity IS NULL THEN 0
+    ELSE stock.quantity
+END AS "Qty Main St"
 FROM books b
-JOIN book_genres bg
+LEFT JOIN book_genres bg
 ON b.book_id = bg.book_id
-JOIN genres g
+INNER JOIN genres g
 ON bg.genre_id = g.genre_id
 LEFT JOIN book_series ser
 ON b.series_id = ser.series_id
+LEFT JOIN (
+	SELECT book_id, quantity
+	FROM book_stock
+    WHERE location_id = 1
+    ) stock
+ON b.book_id = stock.book_id
 GROUP BY b.book_id;
 
+-- Error Code: 1055. Expression #7 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'stock.quantity' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 
 -- Total Revenue by Genre
 SELECT g.genre_name, SUM(oc.quantity * b.price) AS genre_revenue
