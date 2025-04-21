@@ -13,3 +13,12 @@ BEGIN
   WHERE book_id = NEW.book_id;
 END //
 DELIMITER ;
+
+-- BEFORE A ORDER IS PLACED
+SELECT * FROM book_stock;
+
+INSERT INTO order_contents (order_id, book_id, quantity) VALUES
+(1, 1, 3);
+
+-- AFTER A ORDER IS PLACED
+SELECT * FROM book_stock;
