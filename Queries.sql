@@ -63,3 +63,11 @@ l.name AS location_name, l.city, l.state
 FROM employees e
 JOIN locations l ON e.location = l.location_id
 ORDER BY l.name;
+
+CREATE VIEW managers AS
+SELECT *
+FROM employees
+WHERE is_manager = 1;
+
+SELECT *
+FROM managers;
