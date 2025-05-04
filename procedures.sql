@@ -35,3 +35,26 @@ BEGIN
 END //
 DELIMITER ;
 CALL p_remove_order_contents_orphans();
+
+DROP PROCEDURE IF EXISTS p_book_percent_markdown;
+DELIMITER //
+CREATE PROCEDURE p_book_percent_markdown(IN book_id_param INT, IN percent_down_param DECIMAL(5,2))
+BEGIN
+	UPDATE books
+    SET price = ROUND(price * ((100 - percent_down_param) / 100), 2)
+    WHERE book_id = book_id_param;
+END//
+DELIMITER ;
+
+CALL p_book_percent_markdown(1, 25);
+
+DROP PROCEDURE IF EXISTS p_global_percent_markdown
+DELIMITER //
+CREATE PROCEDURE p_global_percent_markdown(IN percent_down_param INT)
+BEGIN
+	UPDATE books
+    SET price = price * ((100 - percent_down_param) / 100);
+END//
+DELIMITER ;
+
+CALL p_global_percent_markdown(10);
