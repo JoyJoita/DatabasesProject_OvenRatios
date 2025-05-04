@@ -34,6 +34,7 @@ BEGIN
 	);
 END //
 DELIMITER ;
+
 CALL p_remove_order_contents_orphans();
 
 DROP PROCEDURE IF EXISTS p_book_percent_markdown;
