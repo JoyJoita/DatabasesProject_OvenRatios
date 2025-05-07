@@ -16,7 +16,7 @@ BEGIN
     FROM orders
     WHERE customer_id NOT IN (SELECT customer_id FROM customers);
     
-    SELECT * FROM order_orphan_view; -- change this to a remove statement ! !
+    SELECT * FROM order_orphan_view;
 END //
 Delimiter ;
 
