@@ -25,3 +25,12 @@ INSERT INTO order_contents (order_id, book_id, quantity) VALUES
 
 -- AFTER A ORDER IS PLACED
 SELECT * FROM book_stock;
+
+-- Abandoned because orders lack location, which would be required to look up the book in book_stock
+-- DROP TRIGGER IF EXISTS t_prevent_backorder_on_discontinued;
+-- DELIMITER //
+-- CREATE TRIGGER t_prevent_backorder_on_discontinued
+-- BEFORE INSERT ON order_contents
+-- FOR EACH ROW
+-- BEGIN
+-- 	IF 
