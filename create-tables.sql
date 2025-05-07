@@ -13,7 +13,7 @@ CREATE TABLE books (
     isbn CHAR(13) NOT NULL,
 	release_date DATE NOT NULL,
     price DECIMAL(7,2) NOT NULL,
-    series_id INT REFERENCES book_series(series_id),
+    series_id INT REFERENCES book_series(series_id) ON DELETE SET NULL,
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese"),
     is_discontinued BOOL DEFAULT FALSE -- To disallow backorders on discontinued books
 );
@@ -24,8 +24,8 @@ CREATE TABLE genres(
 );
     
 CREATE TABLE book_genres(
-	book_id INT REFERENCES books(book_id),
-    genre_id INT REFERENCES genres(genre_id),
+	book_id INT REFERENCES books(book_id) ON DELETE CASCADE,
+    genre_id INT REFERENCES genres(genre_id) ON DELETE CASCADE,
     PRIMARY KEY (genre_id, book_id)
 );
 
@@ -49,16 +49,17 @@ CREATE TABLE employees (
     middle_name NVARCHAR(100),
     last_name NVARCHAR(100) NOT NULL,
     hourly_rate DECIMAL(6, 2) NOT NULL CHECK (hourly_rate > 0),
-    location INT NOT NULL REFERENCES locations(location_id),
+    location INT NOT NULL REFERENCES locations(location_id) ON DELETE RESTRICT,
     is_manager BOOL NOT NULL
 );
 
 CREATE TABLE book_stock (
 	stock_id INT PRIMARY KEY,
-    book_id INT NOT NULL REFERENCES books(book_id),
-    location_id INT NOT NULL REFERENCES locations(location_id),
+    book_id INT NOT NULL REFERENCES books(book_id) ON DELETE RESTRICT,
+    location_id INT NOT NULL REFERENCES locations(location_id) ON DELETE RESTRICT,
     quantity INT NOT NULL DEFAULT 0,
-    UNIQUE (book_id, location_id) -- Combinations must be unique
+    UNIQUE (book_id, location_id), -- Combinations must be unique
+    CHECK (quantity > 0)
 );
 
 CREATE TABLE customers (
@@ -72,13 +73,13 @@ CREATE TABLE customers (
 
 CREATE TABLE orders (
 	order_id INT PRIMARY KEY AUTO_INCREMENT,
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
+    customer_id INT NOT NULL REFERENCES customers(customer_id) ON DELETE CASCADE,
     order_date DATE NOT NULL,
     total_cost DECIMAL(7, 2) NOT NULL
 );
 
 CREATE TABLE order_contents (
-	order_id INT REFERENCES orders(order_id),
+	order_id INT REFERENCES orders(order_id) ON DELETE CASCADE,
     book_id INT REFERENCES books(book_id),
     quantity INT NOT NULL CHECK (quantity > 0),
     PRIMARY KEY (order_id, book_id)
