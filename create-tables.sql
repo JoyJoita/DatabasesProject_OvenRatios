@@ -15,7 +15,7 @@ CREATE TABLE books (
     price DECIMAL(7,2) NOT NULL,
     series_id INT REFERENCES book_series(series_id),
     language ENUM("English", "Spanish", "Arabic", "French", "Japanese", "Chinese"),
-    is_available BOOL DEFAULT TRUE -- To disallow backorders on discontinued books
+    is_discontinued BOOL DEFAULT FALSE -- To disallow backorders on discontinued books
 );
 
 CREATE TABLE genres(
